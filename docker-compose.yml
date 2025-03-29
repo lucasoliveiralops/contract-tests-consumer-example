@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  app:
+    container_name: ms-notification-control
+    build: ./
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "9000:8080"
+    networks:
+      bubble:
+
+networks:
+  bubble:
+    external: true

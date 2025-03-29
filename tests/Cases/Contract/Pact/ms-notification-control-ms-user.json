@@ -1,0 +1,127 @@
+{
+  "consumer": {
+    "name": "ms-notification-control"
+  },
+  "interactions": [
+    {
+      "description": "No results found",
+      "providerStates": [
+        {
+          "name": "A GET request to /user with filters for Age and Gender but empty."
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/users",
+        "query": {
+          "age": [
+            "60"
+          ],
+          "gender": [
+            "W"
+          ]
+        }
+      },
+      "response": {
+        "body": [],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "One user matching your age (14) and gender (Male) was found.",
+      "providerStates": [
+        {
+          "name": "A GET request to /user with filters for Age and Gender."
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/users",
+        "query": {
+          "age": [
+            "14"
+          ],
+          "gender": [
+            "M"
+          ]
+        }
+      },
+      "response": {
+        "body": [
+          {
+            "age": 14,
+            "gender": "M",
+            "id": 2102983331,
+            "name": "Name"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "min": 1
+                }
+              ]
+            },
+            "$[*].age": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].gender": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^[MWO]$"
+                }
+              ]
+            },
+            "$[*].id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pactRust": {
+      "ffi": "0.4.26",
+      "mockserver": "1.2.11",
+      "models": "1.2.7"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "ms-user"
+  }
+}
