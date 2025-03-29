@@ -41,7 +41,7 @@ Serviço que:
 - **Passo 1:** O teste do consumidor é executado
 - **Passo 2:** Um arquivo de pacto é gerado
 - **Passo 3:** O pacto é publicado no Pact Broker
-- **Passo 4:** O provedor valida contra o contrato (Para entender como o provedor valida o contrato acesse: [ 🔗 Provedor de Exemplo**](https://github.com/lucasoliveiralops/contract-tests-provider-example/))
+- **Passo 4:** O provedor valida contra o contrato (Para entender como o provedor valida o contrato acesse: [ 🔗 Provedor de Exemplo](https://github.com/lucasoliveiralops/contract-tests-provider-example/))
 
 
 ## 🚀 Instalação e Execução
